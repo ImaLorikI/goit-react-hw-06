@@ -23,16 +23,16 @@ export const ContactForm = () => {
   const numberFiealId = useId();
   const dispatch = useDispatch();
 
-const handleSubmit = (values, actions) => {
-  const newContact = {
-    id: nanoid(),
-    text: values.username,
-    phone: values.phone,
-  };
+  const handleSubmit = (values, actions) => {
+    const newContact = {
+      id: nanoid(),
+      text: values.name,
+      phone: values.number,
+    };
 
-  dispatch(addContact(newContact));
-  actions.resetForm();
-};
+    dispatch(addContact(newContact));
+    actions.resetForm();
+  };
   return (
     <Formik
       initialValues={{

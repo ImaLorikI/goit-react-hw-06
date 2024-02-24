@@ -2,12 +2,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import css from './SearchBar.module.css';
 import { useId } from 'react';
 import { filterNumbers } from '../../redux/filtersSlice';
+import { getFilter } from '../../redux/selector';
 export const SearchBar = () => {
   const searchId = useId();
   const dispatch = useDispatch();
   const handleFilterChange = e => dispatch(filterNumbers(e.target.value.trim()));
 
-  const value = useSelector(state => state.filters);
+  const value = useSelector(getFilter);
 
   return (
     <div className={css.div}>
